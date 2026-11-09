@@ -1,12 +1,12 @@
 # 智能IP优选加速 —— GitHub / Cloudflare 加速
 
 **写在前面**
-1、本代码不具备“翻墙”功能,以后也不会有。
-2、本代码不能为您的游戏加速
+- 本代码不具备“翻墙”功能,以后也不会有。
+- 本代码不能为您的游戏加速
 
 ## 痛点：
-1、GitHub 经常打不开；
-2、国外网站几乎都在用 Cloudflare，页面还加载 `cdn.jsdelivr.net`这类 CF 静态资源——我们国内只分配很少一部分慢的节点。
+- GitHub 经常打不开；
+- 国外网站几乎都在用 Cloudflare，页面还加载 `cdn.jsdelivr.net`这类 CF 静态资源——我们国内只分配很少一部分慢的节点。
 
 ---
 
@@ -28,11 +28,15 @@
 
 ## 使用方法
 
-### 步骤 1 ·「优选IP」页 —— 测出最快的 CDN 边缘 IP
+### 步骤 1 ·「优选CDN」页 —— 测出最快的 CDN 边缘 IP
+
+ 筛选cloudflare/cloudfont的CDN优选IP。
 
 ![步骤1 优选IP 页测速并加入优选列表](screenshots/step1-cdn.png)
 
 ### 步骤 2 ·「优选DNS」页 —— 建 DNS 加速池
+
+ 筛选Github这类有IP污染的真实IP。
 
 ![步骤2 扫描公共 DNS 并应用到加速池](screenshots/step2-dns.png)
 
