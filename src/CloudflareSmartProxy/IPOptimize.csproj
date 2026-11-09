@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <!-- 只为一个右下角托盘图标（NotifyIcon）：WPF 自己没有托盘控件，为一个图标引第三方包不划算 -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>IPOptimize</AssemblyName>
+    <RootNamespace>IPOptimize</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>speed.ico</ApplicationIcon>
+    <!-- 发版改这两行，别在 XAML 或代码里写死字面量：
+         Version → AssemblyInformationalVersion / AssemblyFileVersion（标题栏、「设置 → 关于」、exe 右键属性里的版本都读它，
+                    代码里对应 MainWindow.AppVersion，会自动切掉 SDK 可能追加的 +<commit> 后缀）；
+         AssemblyVersion 单独列出来，是因为它会动到程序集引用兼容，不一定要跟着 Version 走。 -->
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- UseWindowsForms 会把 System.Windows.Forms 和 System.Drawing 塞进全局隐式 using，
+         那会让现有 WPF 文件里的 MessageBox / Application / Point 全部变成二义性（CS0166/CS0104）。
+         托盘服务在自己那个文件里显式 using，其余文件保持原样。 -->
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="speed.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 「优选DNS」扫描用的内置公共 DNS 列表（仅读 servers 数组，约 1200 条 IPv4） -->
+    <EmbeddedResource Include="Resources\public-dns-servers.json" LogicalName="CloudflareSmartProxy.Resources.public-dns-servers.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.13" />
+    <PackageReference Include="NLog" Version="5.2.0" />
+  </ItemGroup>
+</Project>

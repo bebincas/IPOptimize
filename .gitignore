@@ -1,0 +1,56 @@
+# 用户IDE私有文件（每个人本地不一样，不要提交）
+*.suo
+*.user
+*.userosscache
+*.rsuser
+*.sln.docstates
+*.userprefs
+
+# 编译输出目录（最重要）
+**/bin/
+**/obj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+.artifacts/
+artifacts/
+
+# NuGet 相关
+**/[Pp]ackages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# 测试输出
+TestResults/
+*.trx
+*.received.*
+
+# VS 缓存、日志
+.vs/
+*.log
+*.cache
+*.pid
+*.tmp
+
+# 本地环境配置（密钥、连接串，非常重要）
+.env
+appsettings.Development.json
+appsettings.Local.json
+
+# 其他
+*.bak
+*.swp
+mono_crash.*
+/新建 文本文档.txt
+/100个IT与设计常用网站.xlsx
