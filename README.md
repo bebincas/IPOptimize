@@ -1,4 +1,4 @@
-# 智能IP优选加速 —— GitHub / Cloudflare 加速
+# Github加速器 —— 支持 GitHub / Cloudflare 加速
 
 **写在前面**
 - 本代码不具备“翻墙”功能,以后也不会有。
